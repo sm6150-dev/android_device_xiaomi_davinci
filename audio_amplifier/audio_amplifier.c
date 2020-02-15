@@ -76,58 +76,62 @@ int audio_extn_tfa98xx_start_feedback(uint32_t snd_device) {
     };
 
     if (!tfa_dev) {
-        ALOGE("%s: Invalid params", __func__);
+        ALOGE("%d: Invalid params", __LINE__);
         return -EINVAL;
     }
 
-    if (tfa_dev->tfa98xx_out || !is_speaker(snd_device)) return 0;
-
+    if (tfa_dev->tfa98xx_out || !is_speaker(snd_device)) {
+        ALOGE("%d: isnt speaker", __LINE__);
+         return 0;
+    }
     tfa_dev->usecase_tx = (struct audio_usecase*)calloc(1, sizeof(struct audio_usecase));
-    if (!tfa_dev->usecase_tx) return -ENOMEM;
-
+    if (!tfa_dev->usecase_tx) {
+        ALOGE("%d: failed to allocate usecase", __LINE__);
+      return -ENOMEM;
+    }
     tfa_dev->usecase_tx->id = USECASE_AUDIO_SPKR_CALIB_TX;
     tfa_dev->usecase_tx->type = PCM_CAPTURE;
     tfa_dev->usecase_tx->in_snd_device = SND_DEVICE_IN_CAPTURE_VI_FEEDBACK;
 
-    list_add_tail(&tfa_dev->adev->usecase_list, &tfa_dev->usecase_tx->list);
-    enable_snd_device(tfa_dev->adev, tfa_dev->usecase_tx->in_snd_device);
-    enable_audio_route(tfa_dev->adev, tfa_dev->usecase_tx);
-
-    pcm_dev_tx_id = platform_get_pcm_device_id(tfa_dev->usecase_tx->id, tfa_dev->usecase_tx->type);
-    ALOGD("pcm_dev_tx_id = %d", pcm_dev_tx_id);
-    if (pcm_dev_tx_id < 0) {
-        ALOGE("%s: Invalid pcm device for usecase (%d)", __func__, tfa_dev->usecase_tx->id);
-        rc = -ENODEV;
-        goto error;
-    }
-
-    tfa_dev->tfa98xx_out =
-            pcm_open(tfa_dev->adev->snd_card, pcm_dev_tx_id, PCM_IN, &pcm_config_tfa98xx);
-    if (!(tfa_dev->tfa98xx_out || pcm_is_ready(tfa_dev->tfa98xx_out))) {
-        ALOGE("%s: %s", __func__, pcm_get_error(tfa_dev->tfa98xx_out));
-        rc = -EIO;
-        goto error;
-    }
-
-    rc = pcm_start(tfa_dev->tfa98xx_out);
-    if (rc < 0) {
-        ALOGE("%s: pcm start for TX failed", __func__);
-        rc = -EINVAL;
-        goto error;
-    }
-    return 0;
-
-error:
-    ALOGE("%s: error case", __func__);
-    if (tfa_dev->tfa98xx_out != 0) {
-        pcm_close(tfa_dev->tfa98xx_out);
-        tfa_dev->tfa98xx_out = NULL;
-    }
-    disable_snd_device(tfa_dev->adev, tfa_dev->usecase_tx->in_snd_device);
-    list_remove(&tfa_dev->usecase_tx->list);
-    disable_audio_route(tfa_dev->adev, tfa_dev->usecase_tx);
-    free(tfa_dev->usecase_tx);
-
+    // list_add_tail(&tfa_dev->adev->usecase_list, &tfa_dev->usecase_tx->list);
+    // enable_snd_device(tfa_dev->adev, tfa_dev->usecase_tx->in_snd_device);
+    // enable_audio_route(tfa_dev->adev, tfa_dev->usecase_tx);
+//
+    // pcm_dev_tx_id = platform_get_pcm_device_id(tfa_dev->usecase_tx->id, tfa_dev->usecase_tx->type);
+    // ALOGD("pcm_dev_tx_id = %d", pcm_dev_tx_id);
+    // if (pcm_dev_tx_id < 0) {
+        // ALOGE("%d: Invalid pcm device for usecase (%d)", __LINE__, tfa_dev->usecase_tx->id);
+        // rc = -ENODEV;
+        // goto error;
+    // }
+//
+    // tfa_dev->tfa98xx_out =
+            // pcm_open(0, pcm_dev_tx_id, PCM_IN, &pcm_config_tfa98xx);
+    // if (!(tfa_dev->tfa98xx_out || pcm_is_ready(tfa_dev->tfa98xx_out))) {
+        // ALOGE("%d: %s", __LINE__, pcm_get_error(tfa_dev->tfa98xx_out));
+        // rc = -EIO;
+        // goto error;
+    // }
+//
+    // rc = pcm_start(tfa_dev->tfa98xx_out);
+    // if (rc < 0) {
+        // ALOGE("%d: pcm start for TX failed", __LINE__);
+        // rc = -EINVAL;
+        // goto error;
+    // }
+    // return 0;
+//
+// error:
+    // ALOGE("%s: error case", __func__);
+    // if (tfa_dev->tfa98xx_out != 0) {
+        // pcm_close(tfa_dev->tfa98xx_out);
+        // tfa_dev->tfa98xx_out = NULL;
+    // }
+    // disable_snd_device(tfa_dev->adev, tfa_dev->usecase_tx->in_snd_device);
+    // list_remove(&tfa_dev->usecase_tx->list);
+    // disable_audio_route(tfa_dev->adev, tfa_dev->usecase_tx);
+    // free(tfa_dev->usecase_tx);
+//
     return rc;
 }
 
@@ -136,22 +140,22 @@ void audio_extn_tfa98xx_stop_feedback(uint32_t snd_device) {
         ALOGE("%s: Invalid params", __func__);
         return;
     }
-
-    if (!is_speaker(snd_device)) return;
-
-    if (tfa_dev->tfa98xx_out) {
-        pcm_close(tfa_dev->tfa98xx_out);
-        tfa_dev->tfa98xx_out = NULL;
-    }
-
-    disable_snd_device(tfa_dev->adev, SND_DEVICE_IN_CAPTURE_VI_FEEDBACK);
-
-    tfa_dev->usecase_tx = get_usecase_from_list(tfa_dev->adev, USECASE_AUDIO_SPKR_CALIB_TX);
-    if (tfa_dev->usecase_tx) {
-        list_remove(&tfa_dev->usecase_tx->list);
-        disable_audio_route(tfa_dev->adev, tfa_dev->usecase_tx);
-        free(tfa_dev->usecase_tx);
-    }
+//
+    // if (!is_speaker(snd_device)) return;
+//
+    // if (tfa_dev->tfa98xx_out) {
+        // pcm_close(tfa_dev->tfa98xx_out);
+        // tfa_dev->tfa98xx_out = NULL;
+    // }
+//
+    // disable_snd_device(tfa_dev->adev, SND_DEVICE_IN_CAPTURE_VI_FEEDBACK);
+//
+    // tfa_dev->usecase_tx = get_usecase_from_list(tfa_dev->adev, USECASE_AUDIO_SPKR_CALIB_TX);
+    // if (tfa_dev->usecase_tx) {
+        // list_remove(&tfa_dev->usecase_tx->list);
+        // disable_audio_route(tfa_dev->adev, tfa_dev->usecase_tx);
+        // free(tfa_dev->usecase_tx);
+    // }
     return;
 }
 

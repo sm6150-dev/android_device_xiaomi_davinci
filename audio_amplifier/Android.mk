@@ -24,6 +24,7 @@ LOCAL_C_INCLUDES += \
     system/media/audio_utils/include \
     $(call include-path-for, audio-route) \
     $(call include-path-for, audio-effects) \
+    $(call project-path-for,qcom-audio)/hal \
     $(call project-path-for,qcom-audio)/hal/msm8974 \
     $(call project-path-for,qcom-audio)/hal/audio_extn \
     $(call project-path-for,qcom-audio)/hal/voice_extn
