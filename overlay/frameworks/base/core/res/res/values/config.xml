@@ -39,9 +39,11 @@
 
     <!-- Specifies the maximum burn-in offset vertically. -->
     <integer name="config_burnInProtectionMaxVerticalOffset">40</integer>
-  
-    <!-- Height of the status bar -->
-    <dimen name="status_bar_height_portrait">35.0dip</dimen>
+
+    <!-- Height of the status bar.
+         Do not read this dimen directly. Use {@link SystemBarUtils#getStatusBarHeight} instead.
+         -->
+    <dimen name="status_bar_height">35dp</dimen>
 
      <!-- The properties of a UDFPS sensor in pixels, in the order listed below: -->
      <integer-array name="config_udfps_sensor_props" translatable="false" >
