@@ -26,10 +26,8 @@ TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
 AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
 
 # Fingerprint
-TARGET_SURFACEFLINGER_FOD_LIB := //$(COMMON_PATH):libfod_extension
-TARGET_USES_FOD_ZPOS := true
-SOONG_CONFIG_xiaomiVars_uses_fod_extension := $(TARGET_USES_FOD_ZPOS)
-SOONG_CONFIG_xiaomiVars_fod_pos_y := 1931
+TARGET_SURFACEFLINGER_UDFPS_LIB := //$(COMMON_PATH):libudfps_extension
+SOONG_CONFIG_xiaomiVars_uses_fod_extension := true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_davinci
