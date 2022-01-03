@@ -47,8 +47,5 @@ ODM_MANIFEST_SKUS += \
 
 ODM_MANIFEST_DAVINCI_FILES := $(DEVICE_PATH)/manifest_davinci.xml
 
-# NFC
-TARGET_USES_NQ_NFC := true
-
 # Inherit from the proprietary version
 include vendor/xiaomi/davinci/BoardConfigVendor.mk
