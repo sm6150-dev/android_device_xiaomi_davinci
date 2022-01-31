@@ -47,5 +47,8 @@ ODM_MANIFEST_SKUS += \
 
 ODM_MANIFEST_DAVINCI_FILES := $(DEVICE_PATH)/manifest_davinci.xml
 
+# Partition
+BOARD_PRODUCTIMAGE_PARTITION_SIZE := 1073741824
+
 # Inherit from the proprietary version
 include vendor/xiaomi/davinci/BoardConfigVendor.mk
