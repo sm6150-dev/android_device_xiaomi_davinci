@@ -56,13 +56,13 @@ constexpr const char *DEVICES[] = {
 };
 
 constexpr const char *BUILD_DESCRIPTION[] = {
-    "davinci-user 10 QKQ1.190825.002 V12.0.3.0.QFJCNXM release-keys",
+    "davinci-user 10 QKQ1.190825.002 V12.5.2.0.RFJCNXM release-keys",
     "davinci-user 10 QKQ1.190825.002 V12.0.2.0.QFJMIXM release-keys",
     "davinciin-user 10 QKQ1.190825.002 V12.0.0.2.QFJINXM release-keys",
 };
 
 constexpr const char *BUILD_FINGERPRINT[] = {
-    "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.3.0.QFJCNXM:user/"
+    "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.5.2.0.RFJCNXM:user/"
     "release-keys",
     "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.2.0.QFJMIXM:user/"
     "release-keys",
