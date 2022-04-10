@@ -38,6 +38,7 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_davinci
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE += androidboot.hardware.revision=V1
 TARGET_KERNEL_CONFIG := vendor/lineage_davinci_defconfig
+TARGET_KERNEL_RECOVERY_CONFIG := vendor/lineage_davinci_recovery_defconfig
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
