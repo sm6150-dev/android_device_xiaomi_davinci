@@ -188,8 +188,6 @@ vendor/lib64/libcamxfdengine.so
 vendor/lib64/libcamxstatscore.so
 vendor/lib64/libcamxswprocessalgo.so
 vendor/lib64/libcamxtintlessalgo.so
-vendor/lib64/libcapiv2svacnn.so
-vendor/lib64/libcapiv2vop.so
 vendor/lib64/libcom.qti.chinodeutils.so
 vendor/lib64/libft2vendor.so
 vendor/lib64/libmialgo_fs.so
