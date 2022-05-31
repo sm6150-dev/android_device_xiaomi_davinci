@@ -57,6 +57,9 @@
         <item>95</item>
      </integer-array>
 
+     <!-- Height of the status bar header bar when on Keyguard -->
+     <dimen name="status_bar_header_height_keyguard">@*android:dimen/status_bar_height_portrait</dimen>
+
      <!-- How long it takes for the HW to start illuminating after the illumination is requested. -->
     <integer name="config_udfps_illumination_transition_ms">0</integer>
 </resources>
