@@ -11,12 +11,12 @@ vendor/etc/acdbdata/Forte/Forte_workspaceFile.qwsp
 vendor/etc/acdbdata/adsp_avs_config.acdb
 
 # ADSP Modules
-vendor/lib/rfsa/adsp/libarcsoft_dualcam_refocus_skel.so
-vendor/lib/rfsa/adsp/libhexagon_nn_skel_secondary.so
 vendor/lib/rfsa/adsp/libSuperSensor_skel.so
 vendor/lib/rfsa/adsp/libVDHexagonSuperPhoto_skel.so
-vendor/lib/rfsa/adsp/misound_karaokemix_res.bin
+vendor/lib/rfsa/adsp/libarcsoft_dualcam_refocus_skel.so
+vendor/lib/rfsa/adsp/libhexagon_nn_skel_secondary.so
 vendor/lib/rfsa/adsp/misound_karaoke_res.bin
+vendor/lib/rfsa/adsp/misound_karaokemix_res.bin
 vendor/lib/rfsa/adsp/misound_res.bin
 
 # Audio (speaker amplifier) firmware
@@ -32,7 +32,13 @@ vendor/bin/remosaic_daemon
 vendor/etc/camera/CFR_para_T.bin
 vendor/etc/camera/CFR_para_UW.bin
 vendor/etc/camera/CFR_para_W.bin
+vendor/etc/camera/LDC_FPC_TUNING_DATA.bin
+vendor/etc/camera/LDC_PACKDATA_VENDORID_0x01.bin
+vendor/etc/camera/LDC_PACKDATA_VENDORID_0x07.bin
+vendor/etc/camera/LDC_table_src1.dat
+vendor/etc/camera/LDC_table_src2.dat
 vendor/etc/camera/Miui-Light.ttf
+vendor/etc/camera/Roboto-Thin.ttf
 vendor/etc/camera/almalence_sr_params_tele.config
 vendor/etc/camera/almalence_sr_params_wide.config
 vendor/etc/camera/beauty_ui9_intelligent_params.config
@@ -45,47 +51,22 @@ vendor/etc/camera/female_icon.png
 vendor/etc/camera/fonts.xml
 vendor/etc/camera/golden_rear_dc_cal_wu.bin
 vendor/etc/camera/hdr_ui9_params.config
-vendor/etc/camera/LDC_FPC_TUNING_DATA.bin
-vendor/etc/camera/LDC_PACKDATA_VENDORID_0x01.bin
-vendor/etc/camera/LDC_PACKDATA_VENDORID_0x07.bin
-vendor/etc/camera/LDC_table_src1.dat
-vendor/etc/camera/LDC_table_src2.dat
 vendor/etc/camera/lf_facerank_model.bin
 vendor/etc/camera/male_bg.png
 vendor/etc/camera/male_icon.png
 vendor/etc/camera/mibokeh_712_opencl.bin
 vendor/etc/camera/mibokeh_712_parameter.bin
-vendor/etc/camera/Roboto-Thin.ttf
 vendor/etc/camera/sceneDetection.xml
 vendor/etc/camera/score_bg.png
 vendor/etc/camera/score_icon.png
 vendor/etc/camera/sdm_ys_32p_120_21_5_perturb50.bin
 vendor/etc/camera/visidon_clearshot_params_algoup.xml
 vendor/etc/camera/watermark_font_2300_3199.dat
-vendor/lib64/camera/com.qti.sensor.imx582_davinci.so
-vendor/lib64/camera/com.qti.sensor.imx586_davinci.so
-vendor/lib64/camera/com.qti.sensor.ov8856_davinci.so
-vendor/lib64/camera/com.qti.sensor.s5k3l6_davinci.so
-vendor/lib64/camera/com.qti.sensor.s5k3t2_davinci.so
-vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_imx582.bin
-vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_imx586.bin
-vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_ov8856.bin
-vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_s5k3l6.bin
-vendor/lib64/camera/com.qti.sensormodule.davinci_ofilm_imx582.bin
-vendor/lib64/camera/com.qti.sensormodule.davinci_ofilm_imx586.bin
-vendor/lib64/camera/com.qti.sensormodule.davinci_ofilm_ov8856.bin
-vendor/lib64/camera/com.qti.sensormodule.davinci_ofilm_s5k3l6.bin
-vendor/lib64/camera/com.qti.sensormodule.davinci_sunny_s5k3t2.bin
-vendor/lib64/camera/com.qti.tuned.davinci_luxvisions_imx582.bin
-vendor/lib64/camera/com.qti.tuned.davinci_luxvisions_imx586.bin
-vendor/lib64/camera/com.qti.tuned.davinci_luxvisions_ov8856.bin
-vendor/lib64/camera/com.qti.tuned.davinci_luxvisions_s5k3l6.bin
-vendor/lib64/camera/com.qti.tuned.davinci_ofilm_imx582.bin
-vendor/lib64/camera/com.qti.tuned.davinci_ofilm_imx586.bin
-vendor/lib64/camera/com.qti.tuned.davinci_ofilm_ov8856.bin
-vendor/lib64/camera/com.qti.tuned.davinci_ofilm_s5k3l6.bin
-vendor/lib64/camera/com.qti.tuned.davinci_sunny_s5k3t2.bin
-vendor/lib64/camera/com.qti.tuned.default.bin
+vendor/lib64/camera/components/etc/morpho_lowlight4.0.xml
+vendor/lib64/camera/components/etc/morpho_lowlight4.0_3hdr.xml
+vendor/lib64/camera/components/etc/morpho_lowlight4.0_adrc_high.xml
+vendor/lib64/camera/components/etc/morpho_lowlight4.0_adrc_high_1.xml
+vendor/lib64/camera/components/etc/visidon_clearshot_params.xml
 vendor/lib64/camera/components/com.almalence.node.sr.so
 vendor/lib64/camera/components/com.altek.node.depurple.so
 vendor/lib64/camera/components/com.altek.node.distortioncorrection.so
@@ -143,13 +124,32 @@ vendor/lib64/camera/components/com.visidon.node.sr.so
 vendor/lib64/camera/components/com.xiaomi.node.mibokeh.so
 vendor/lib64/camera/components/com.xiaomi.node.mifragment.so
 vendor/lib64/camera/components/com.xiaomi.node.misegment.so
-vendor/lib64/camera/components/etc/morpho_lowlight4.0.xml
-vendor/lib64/camera/components/etc/morpho_lowlight4.0_3hdr.xml
-vendor/lib64/camera/components/etc/morpho_lowlight4.0_adrc_high.xml
-vendor/lib64/camera/components/etc/morpho_lowlight4.0_adrc_high_1.xml
-vendor/lib64/camera/components/etc/visidon_clearshot_params.xml
 vendor/lib64/camera/components/libdepthmapwrapper.so
 vendor/lib64/camera/components/libmmcamera_cac3.so
+vendor/lib64/camera/com.qti.sensor.imx582_davinci.so
+vendor/lib64/camera/com.qti.sensor.imx586_davinci.so
+vendor/lib64/camera/com.qti.sensor.ov8856_davinci.so
+vendor/lib64/camera/com.qti.sensor.s5k3l6_davinci.so
+vendor/lib64/camera/com.qti.sensor.s5k3t2_davinci.so
+vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_imx582.bin
+vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_imx586.bin
+vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_ov8856.bin
+vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_s5k3l6.bin
+vendor/lib64/camera/com.qti.sensormodule.davinci_ofilm_imx582.bin
+vendor/lib64/camera/com.qti.sensormodule.davinci_ofilm_imx586.bin
+vendor/lib64/camera/com.qti.sensormodule.davinci_ofilm_ov8856.bin
+vendor/lib64/camera/com.qti.sensormodule.davinci_ofilm_s5k3l6.bin
+vendor/lib64/camera/com.qti.sensormodule.davinci_sunny_s5k3t2.bin
+vendor/lib64/camera/com.qti.tuned.davinci_luxvisions_imx582.bin
+vendor/lib64/camera/com.qti.tuned.davinci_luxvisions_imx586.bin
+vendor/lib64/camera/com.qti.tuned.davinci_luxvisions_ov8856.bin
+vendor/lib64/camera/com.qti.tuned.davinci_luxvisions_s5k3l6.bin
+vendor/lib64/camera/com.qti.tuned.davinci_ofilm_imx582.bin
+vendor/lib64/camera/com.qti.tuned.davinci_ofilm_imx586.bin
+vendor/lib64/camera/com.qti.tuned.davinci_ofilm_ov8856.bin
+vendor/lib64/camera/com.qti.tuned.davinci_ofilm_s5k3l6.bin
+vendor/lib64/camera/com.qti.tuned.davinci_sunny_s5k3t2.bin
+vendor/lib64/camera/com.qti.tuned.default.bin
 vendor/lib64/camera/fdconfigpreview.bin
 vendor/lib64/camera/fdconfigpreviewlite.bin
 vendor/lib64/camera/fdconfigvideo.bin
@@ -198,11 +198,11 @@ vendor/lib64/libcapiv2svacnn.so
 vendor/lib64/libcapiv2vop.so
 vendor/lib64/libcom.qti.chinodeutils.so
 vendor/lib64/libft2vendor.so
-vendor/lib64/libmialgoengine.so
 vendor/lib64/libmialgo_fs.so
 vendor/lib64/libmialgo_rfs.so
 vendor/lib64/libmialgo_sd.so
 vendor/lib64/libmialgo_utils.so
+vendor/lib64/libmialgoengine.so
 vendor/lib64/libmibokeh_712.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libnanopb.so
@@ -254,22 +254,22 @@ vendor/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod
 vendor/lib64/libgf_hal.so
 
 # GPU (Firmware)
-vendor/firmware/a615_zap.mdt
 vendor/firmware/a615_zap.b00
 vendor/firmware/a615_zap.b01
 vendor/firmware/a615_zap.b02
 vendor/firmware/a615_zap.elf
+vendor/firmware/a615_zap.mdt
 vendor/firmware/a618_gmu.bin
 vendor/firmware/a630_sqe.fw
 
 # IPA (Firmware)
-vendor/firmware/ipa_fws.b02
-vendor/firmware/ipa_fws.mdt
 vendor/firmware/ipa_fws.b00
 vendor/firmware/ipa_fws.b01
+vendor/firmware/ipa_fws.b02
 vendor/firmware/ipa_fws.b03
 vendor/firmware/ipa_fws.b04
 vendor/firmware/ipa_fws.elf
+vendor/firmware/ipa_fws.mdt
 
 # NFC
 vendor/lib/libsn100u_fw.so
@@ -338,7 +338,6 @@ vendor/etc/init/init.mi_thermald.rc
 vendor/etc/thermal-arvr.conf
 vendor/etc/thermal-camera.conf
 vendor/etc/thermal-chg-only.conf
-vendor/etc/thermald-devices.conf
 vendor/etc/thermal-engine.conf
 vendor/etc/thermal-map.conf
 vendor/etc/thermal-nolimits.conf
@@ -346,6 +345,7 @@ vendor/etc/thermal-normal.conf
 vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
 vendor/etc/thermal-youtube.conf
+vendor/etc/thermald-devices.conf
 
 # Touchscreen
 vendor/firmware/goodix_gt9886_limit_f10_first.tporder
