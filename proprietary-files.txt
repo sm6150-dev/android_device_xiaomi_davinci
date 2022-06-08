@@ -22,11 +22,6 @@ vendor/lib/rfsa/adsp/misound_res.bin
 # Audio (speaker amplifier) firmware
 vendor/firmware/tfa98xx.cnt
 
-# Bluetooth
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-
 # Camera
 vendor/bin/remosaic_daemon
 vendor/etc/camera/CFR_para_T.bin
